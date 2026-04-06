@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(dotnet build:*)",
+      "Bash(npx ng:*)",
+      "Bash(dotnet run:*)",
+      "Bash(curl -s -X POST http://localhost:5000/api/auth/signup -H 'Content-Type: application/json' -d '{\"fullName\":\"Test User\",\"email\":\"test@example.com\",\"password\":\"password123\"}')",
+      "Bash(curl -s -X POST http://localhost:5000/api/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"test@example.com\",\"password\":\"password123\"}')",
+      "Bash(curl -s -X POST http://localhost:5000/api/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"test@example.com\",\"password\":\"wrongpassword\"}')",
+      "Bash(pkill -f \"dotnet run\")",
+      "Bash(rm -f \"/d/Mohamed Shal/Projects/Angular/TeacherHub.Api/teacherhub.db\")",
+      "Bash(curl -s -X POST http://localhost:5264/api/auth/signup -H \"Content-Type: application/json\" -d '{\"fullName\":\"Test User\",\"email\":\"test@example.com\",\"password\":\"password123\"}')",
+      "Bash(curl -s -X POST http://localhost:5264/api/auth/login -H \"Content-Type: application/json\" -d '{\"email\":\"test@example.com\",\"password\":\"password123\"}')",
+      "Bash(curl -s -X POST http://localhost:5264/api/auth/login -H \"Content-Type: application/json\" -d '{\"email\":\"test@example.com\",\"password\":\"wrong\"}')",
+      "Bash(curl -s -X POST http://localhost:5264/api/auth/signup -H \"Content-Type: application/json\" -d '{\"fullName\":\"Test User 2\",\"email\":\"test@example.com\",\"password\":\"password123\"}')",
+      "Bash(pkill -f \"TeacherHub.Api\")",
+      "Bash(netstat -ano)",
+      "Bash(ng build:*)",
+      "Bash(dotnet ef:*)",
+      "Bash(cd D:\\\\Mohamed Shal\\\\Projects\\\\Angular\\\\hello-world)",
+      "Bash(npx tsc:*)",
+      "Bash(sed:*)"
+    ]
+  }
+}

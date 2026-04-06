@@ -1,0 +1,222 @@
+[
+  {
+    "name": "Ahmed Abdel Aziz",
+    "subject": "Physics",
+    "city": "Alexandria",
+    "teaching_mode": ["Group", "School"],
+    "format": ["Offline"],
+    "location_type": "School (El Bashaer International School)",
+    "experience_years": 18,
+    "notes": "Experienced IGCSE physics teacher with strong academic background"
+  },
+  {
+    "name": "Dr. Nabil Elias",
+    "subject": "Mathematics",
+    "city": "Alexandria",
+    "teaching_mode": ["Group"],
+    "format": ["Offline"],
+    "location_type": "School",
+    "experience_years": 15,
+    "notes": "Senior math teacher in British division schools"
+  },
+  {
+    "name": "Mostafa Allam",
+    "subject": "Physics",
+    "city": "Alexandria",
+    "teaching_mode": ["Group"],
+    "format": ["Offline"],
+    "location_type": "School",
+    "experience_years": 10,
+    "notes": "Physics teacher in IGCSE departments"
+  },
+  {
+    "name": "Mohamed Sherif",
+    "subject": "Chemistry",
+    "city": "Alexandria",
+    "teaching_mode": ["Group"],
+    "format": ["Offline"],
+    "location_type": "School",
+    "experience_years": 10,
+    "notes": "Chemistry IGCSE teacher"
+  },
+  {
+    "name": "Magda Kamel",
+    "subject": "ICT",
+    "city": "Alexandria",
+    "teaching_mode": ["Group"],
+    "format": ["Offline"],
+    "location_type": "School",
+    "experience_years": 12,
+    "notes": "ICT teacher known in IGCSE schools"
+  },
+  {
+    "name": "Taher El Shazly",
+    "subject": "English",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online", "Offline"],
+    "location_type": "Center",
+    "experience_years": 10,
+    "notes": "IG English teacher at international schools"
+  },
+  {
+    "name": "Ahmed Karam",
+    "subject": "Mathematics",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online", "Offline"],
+    "location_type": "Center",
+    "experience_years": 10,
+    "notes": "Popular math teacher in British curriculum"
+  },
+  {
+    "name": "Dr. Maha Soliman",
+    "subject": "Physics",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Offline"],
+    "location_type": "Center",
+    "experience_years": 12,
+    "notes": "Physics specialist in IGCSE/A-Level"
+  },
+  {
+    "name": "Dr. Omneya Gad",
+    "subject": "Biology",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Offline"],
+    "location_type": "Center",
+    "experience_years": 12,
+    "notes": "Biology teacher in IG programs"
+  },
+  {
+    "name": "Tony (English Tutor)",
+    "subject": "English",
+    "city": "Egypt",
+    "teaching_mode": ["One-on-One", "Group"],
+    "format": ["Online", "Offline"],
+    "location_type": "Private Tutor",
+    "experience_years": 12,
+    "notes": "Private tutor with flexible teaching options"
+  },
+  {
+    "name": "Dr. Peter Alfred",
+    "subject": "Chemistry",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online", "Center"],
+    "location_type": "Center",
+    "experience_years": 10,
+    "notes": "Highly recommended chemistry teacher among students"
+  },
+  {
+    "name": "Mr. Hussein Khaled",
+    "subject": "Physics",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online", "Center"],
+    "location_type": "Center",
+    "experience_years": 10,
+    "notes": "Popular physics teacher with strong reputation"
+  },
+  {
+    "name": "Dr. Mina Adly",
+    "subject": "Mathematics",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online"],
+    "location_type": "Online Platform",
+    "experience_years": 10,
+    "notes": "Well-known math teacher in IG community"
+  },
+  {
+    "name": "Dr. Nihal Gabr",
+    "subject": "Biology",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online", "Center"],
+    "location_type": "Center",
+    "experience_years": 10,
+    "notes": "Commonly recommended biology teacher"
+  },
+  {
+    "name": "Dr. Mohamed El Dahan",
+    "subject": "Biology",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online"],
+    "location_type": "Online Platform",
+    "experience_years": 10,
+    "notes": "Popular for A-Level Biology"
+  },
+  {
+    "name": "Loay Khalil",
+    "subject": "Physics",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Center"],
+    "location_type": "Center",
+    "experience_years": 10,
+    "notes": "Recognized physics teacher"
+  },
+  {
+    "name": "Seif Atef",
+    "subject": "Mathematics",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online"],
+    "location_type": "Online Platform",
+    "experience_years": 8,
+    "notes": "Popular among OL/AS students"
+  },
+  {
+    "name": "Marco Youssef",
+    "subject": "Biology",
+    "city": "Egypt",
+    "teaching_mode": ["Small Groups"],
+    "format": ["Center"],
+    "location_type": "Center",
+    "experience_years": 8,
+    "notes": "Known for high student results"
+  },
+  {
+    "name": "Fadi Fahdi",
+    "subject": "English",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online"],
+    "location_type": "Online Platform",
+    "experience_years": 8,
+    "notes": "Recommended English tutor"
+  },
+  {
+    "name": "Abdullah Al-Garf",
+    "subject": "ICT",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["School", "Online"],
+    "location_type": "School / Examiner",
+    "experience_years": 19,
+    "notes": "IGCSE ICT teacher and British Council examiner"
+  },
+  {
+    "name": "Dr. Mohamed Ragab",
+    "subject": "Biology",
+    "city": "Alexandria",
+    "teaching_mode": ["Group"],
+    "format": ["Online", "Center"],
+    "location_type": "Own Academy",
+    "experience_years": 22,
+    "notes": "One of the most popular IGCSE Biology teachers in Egypt, known for top achievers and structured courses"
+  },
+  {
+    "name": "Hala Zoweil",
+    "subject": "Chemistry",
+    "city": "Alexandria",
+    "teaching_mode": ["Group", "School"],
+    "format": ["Offline"],
+    "location_type": "International School",
+    "experience_years": 19,
+    "notes": "IGCSE Chemistry teacher with long academic experience; known more in school environment than public tutoring scene"
+  }
+]

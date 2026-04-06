@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeacherHub.Api", "TeacherHub.Api\TeacherHub.Api.csproj", "{A89DF0B2-3167-A23D-9B38-1BFAB040FFFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A89DF0B2-3167-A23D-9B38-1BFAB040FFFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A89DF0B2-3167-A23D-9B38-1BFAB040FFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A89DF0B2-3167-A23D-9B38-1BFAB040FFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A89DF0B2-3167-A23D-9B38-1BFAB040FFFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A22B6E14-EA27-4909-940D-4465EE8C30DD}
+	EndGlobalSection
+EndGlobal

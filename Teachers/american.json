@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Mahmoud Salah",
+    "subject": "SAT Math",
+    "city": "Alexandria",
+    "teaching_mode": ["Group"],
+    "format": ["Online", "Center"],
+    "location_type": "Test Prep Center",
+    "experience_years": 10,
+    "notes": "Popular SAT Math instructor with strong student results"
+  },
+  {
+    "name": "Ahmed Samir",
+    "subject": "SAT English",
+    "city": "Alexandria",
+    "teaching_mode": ["Group"],
+    "format": ["Online"],
+    "location_type": "Online Platform",
+    "experience_years": 8,
+    "notes": "Specialized in SAT Reading & Writing strategies"
+  },
+  {
+    "name": "Mina Nader",
+    "subject": "Physics (High School / AP)",
+    "city": "Alexandria",
+    "teaching_mode": ["Group", "School"],
+    "format": ["Offline"],
+    "location_type": "International School",
+    "experience_years": 12,
+    "notes": "Experienced American curriculum physics teacher"
+  },
+  {
+    "name": "Nancy Adel",
+    "subject": "Biology (High School / AP)",
+    "city": "Alexandria",
+    "teaching_mode": ["Group"],
+    "format": ["School"],
+    "location_type": "International School",
+    "experience_years": 10,
+    "notes": "Biology teacher in American division schools"
+  },
+  {
+    "name": "Karim Youssef",
+    "subject": "Chemistry (AP)",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online", "Center"],
+    "location_type": "Center",
+    "experience_years": 10,
+    "notes": "Known AP Chemistry tutor among American diploma students"
+  },
+  {
+    "name": "Omar Khaled",
+    "subject": "SAT Math",
+    "city": "Egypt",
+    "teaching_mode": ["Group", "One-on-One"],
+    "format": ["Online"],
+    "location_type": "Private Tutor",
+    "experience_years": 9,
+    "notes": "Private SAT tutor with flexible teaching style"
+  },
+  {
+    "name": "Dina Mostafa",
+    "subject": "English (High School)",
+    "city": "Alexandria",
+    "teaching_mode": ["Group", "School"],
+    "format": ["Offline"],
+    "location_type": "International School",
+    "experience_years": 11,
+    "notes": "American curriculum English teacher"
+  },
+  {
+    "name": "Sherif Hany",
+    "subject": "SAT English",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online", "Center"],
+    "location_type": "Test Prep Center",
+    "experience_years": 10,
+    "notes": "Well-known SAT verbal instructor"
+  },
+  {
+    "name": "Youssef Tarek",
+    "subject": "Mathematics (High School)",
+    "city": "Alexandria",
+    "teaching_mode": ["Group"],
+    "format": ["School"],
+    "location_type": "International School",
+    "experience_years": 10,
+    "notes": "Math teacher in American division"
+  },
+  {
+    "name": "Rana Fathy",
+    "subject": "Biology (AP)",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online"],
+    "location_type": "Online Platform",
+    "experience_years": 8,
+    "notes": "AP Biology tutor with good student feedback"
+  },
+  {
+    "name": "Tamer Naguib",
+    "subject": "Physics (AP)",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Center"],
+    "location_type": "Center",
+    "experience_years": 12,
+    "notes": "AP Physics tutor known in student communities"
+  },
+  {
+    "name": "Hany Adel",
+    "subject": "SAT Math",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Center"],
+    "location_type": "Test Prep Center",
+    "experience_years": 11,
+    "notes": "Long-time SAT Math instructor"
+  },
+  {
+    "name": "Mariam Atef",
+    "subject": "English (High School)",
+    "city": "Alexandria",
+    "teaching_mode": ["Group", "School"],
+    "format": ["Offline"],
+    "location_type": "International School",
+    "experience_years": 9,
+    "notes": "English teacher in American schools"
+  },
+  {
+    "name": "George Samy",
+    "subject": "Chemistry (High School)",
+    "city": "Alexandria",
+    "teaching_mode": ["Group"],
+    "format": ["School"],
+    "location_type": "International School",
+    "experience_years": 10,
+    "notes": "Chemistry teacher for American diploma"
+  },
+  {
+    "name": "Ahmed Reda",
+    "subject": "SAT English",
+    "city": "Egypt",
+    "teaching_mode": ["Group", "Online"],
+    "format": ["Online"],
+    "location_type": "Online Platform",
+    "experience_years": 8,
+    "notes": "Focuses on SAT reading strategies"
+  },
+  {
+    "name": "Noha Samir",
+    "subject": "Biology (High School)",
+    "city": "Alexandria",
+    "teaching_mode": ["Group"],
+    "format": ["School"],
+    "location_type": "International School",
+    "experience_years": 10,
+    "notes": "Biology teacher in American curriculum"
+  },
+  {
+    "name": "Wael Fawzy",
+    "subject": "Mathematics (AP)",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Online"],
+    "location_type": "Online Platform",
+    "experience_years": 10,
+    "notes": "AP Math tutor with strong reputation"
+  },
+  {
+    "name": "Salma Hossam",
+    "subject": "English (SAT / High School)",
+    "city": "Egypt",
+    "teaching_mode": ["Group", "One-on-One"],
+    "format": ["Online"],
+    "location_type": "Private Tutor",
+    "experience_years": 7,
+    "notes": "Flexible English tutor for SAT and school support"
+  },
+  {
+    "name": "Khaled Farouk",
+    "subject": "Physics (High School)",
+    "city": "Alexandria",
+    "teaching_mode": ["Group"],
+    "format": ["School"],
+    "location_type": "International School",
+    "experience_years": 11,
+    "notes": "Physics teacher in American schools"
+  },
+  {
+    "name": "Ehab Mansour",
+    "subject": "Chemistry (AP)",
+    "city": "Egypt",
+    "teaching_mode": ["Group"],
+    "format": ["Center"],
+    "location_type": "Center",
+    "experience_years": 12,
+    "notes": "Experienced AP Chemistry tutor"
+  }
+]
