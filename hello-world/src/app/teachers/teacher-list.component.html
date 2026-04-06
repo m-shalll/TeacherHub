@@ -1,0 +1,53 @@
+<div class="page">
+  <header class="page-header">
+    <div>
+      <h1>Our Teachers</h1>
+      <p>Browse the list of teachers and view their profiles.</p>
+    </div>
+    <a class="btn primary" [routerLink]="['/teachers/new']">Add Teacher</a>
+  </header>
+
+  <section class="toolbar">
+    <input
+      type="search"
+      class="search-input"
+      placeholder="Search by name, subject, or email..."
+      (input)="setSearch($any($event.target).value)"
+    />
+  </section>
+
+  <section class="cards" *ngIf="filteredTeachers().length; else emptyState">
+    <article class="card" *ngFor="let teacher of filteredTeachers()">
+      <div class="avatar">
+        <span>{{ teacher.fullName[0] }}</span>
+      </div>
+      <div class="card-main">
+        <h2>{{ teacher.fullName }}</h2>
+        <p class="subject">{{ teacher.subject }}</p>
+        <p class="meta">
+          <span *ngIf="teacher.experienceYears">
+            {{ teacher.experienceYears }} years experience
+          </span>
+        </p>
+        <p class="contact">
+          <span *ngIf="teacher.email">📧 {{ teacher.email }}</span>
+          <span *ngIf="teacher.phone">📞 {{ teacher.phone }}</span>
+        </p>
+      </div>
+      <div class="card-actions">
+        <a class="btn ghost" [routerLink]="['/teachers', teacher.id]">View</a>
+        <a class="btn ghost" [routerLink]="['/teachers', teacher.id, 'edit']">Edit</a>
+        <button class="btn danger" type="button" (click)="removeTeacher(teacher.id)">
+          Delete
+        </button>
+      </div>
+    </article>
+  </section>
+
+  <ng-template #emptyState>
+    <div class="empty">
+      <p>No teachers found. Try adjusting your search or add a new teacher.</p>
+    </div>
+  </ng-template>
+</div>
+

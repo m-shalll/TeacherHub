@@ -1,0 +1,26 @@
+<header class="nav-shell">
+  <div class="nav-inner">
+    <a class="brand" [routerLink]="auth.isLoggedIn() ? '/timetable' : '/'">
+      <span class="logo">TH</span>
+      <span class="brand-text">
+        <strong>TeacherHub</strong>
+        <small>Teachers & learning videos</small>
+      </span>
+    </a>
+
+    <nav class="links" aria-label="Primary">
+      <a *ngIf="auth.isLoggedIn()" routerLink="/timetable" routerLinkActive="active">{{ t.nav_timetable }}</a>
+      <a *ngIf="auth.isLoggedIn()" routerLink="/dashboard" routerLinkActive="active">{{ t.nav_dashboard }}</a>
+      <a *ngIf="!auth.isLoggedIn()" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ t.nav_home }}</a>
+      <a routerLink="/teachers" routerLinkActive="active">{{ t.nav_teachers }}</a>
+      <a *ngIf="!auth.isLoggedIn()" routerLink="/login" routerLinkActive="active">{{ t.nav_login }}</a>
+      <a *ngIf="!auth.isLoggedIn()" routerLink="/signup" routerLinkActive="active" class="signup">{{ t.nav_signup }}</a>
+
+      <button class="lang-btn" type="button" (click)="toggleLanguage()" [title]="i18n.locale() === 'en' ? 'العربية' : 'English'">
+        {{ i18n.locale() === 'en' ? 'العربية' : 'EN' }}
+      </button>
+
+      <button *ngIf="auth.isLoggedIn()" type="button" class="logout" (click)="logout()">{{ t.nav_logout }}</button>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,45 @@
+<div class="page" *ngIf="teacher; else notFound">
+  <header class="page-header">
+    <div>
+      <h1>{{ teacher.fullName }}</h1>
+      <p>{{ teacher.subject }}</p>
+    </div>
+    <a class="btn ghost" [routerLink]="['/teachers', teacher.id, 'edit']">
+      Edit profile
+    </a>
+  </header>
+
+  <section class="info">
+    <div class="row">
+      <span class="label">Email</span>
+      <span class="value">{{ teacher.email || 'Not provided' }}</span>
+    </div>
+    <div class="row">
+      <span class="label">Phone</span>
+      <span class="value">{{ teacher.phone || 'Not provided' }}</span>
+    </div>
+    <div class="row">
+      <span class="label">Experience</span>
+      <span class="value">
+        {{ teacher.experienceYears ? teacher.experienceYears + ' years' : 'Not provided' }}
+      </span>
+    </div>
+  </section>
+
+  <section class="bio">
+    <h2>About</h2>
+    <p>{{ teacher.bio || 'No biography available yet.' }}</p>
+  </section>
+
+  <footer class="page-footer">
+    <a class="btn ghost" [routerLink]="['/teachers']">Back to list</a>
+  </footer>
+</div>
+
+<ng-template #notFound>
+  <div class="page">
+    <p>Teacher not found.</p>
+    <a class="btn ghost" [routerLink]="['/teachers']">Back to list</a>
+  </div>
+</ng-template>
+

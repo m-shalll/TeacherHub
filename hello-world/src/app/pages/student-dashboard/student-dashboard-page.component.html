@@ -1,0 +1,25 @@
+<div class="page">
+  <header class="hero">
+    <div>
+      <h1>{{ t.dash_h1 }}</h1>
+      <p class="sub" *ngIf="user() as u">
+        {{ t.dash_signed_in_as }} <strong>{{ u.fullName }}</strong> ({{ u.email }})
+      </p>
+    </div>
+    <a class="btn ghost" routerLink="/teachers">{{ t.dash_browse }}</a>
+  </header>
+
+  <section class="section">
+    <h2>{{ t.dash_teachers_title }}</h2>
+    <p class="hint" *ngIf="enrolledTeachers().length === 0">
+      {{ t.dash_empty_hint }} <strong>{{ t.dash_empty_hint_bold }}</strong>.
+    </p>
+
+    <div class="grid" *ngIf="enrolledTeachers().length">
+      <div class="wrap" *ngFor="let teacher of enrolledTeachers()">
+        <button class="unenroll" type="button" (click)="unenroll(teacher.id, $event)" [title]="t.profile_unenroll">×</button>
+        <app-teacher-card [teacher]="teacher" [averageRating]="avgRatingFor(teacher.id)" />
+      </div>
+    </div>
+  </section>
+</div>

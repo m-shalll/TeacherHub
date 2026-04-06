@@ -1,0 +1,125 @@
+<div class="page">
+  <header class="hero">
+    <h1>{{ t.tt_h1 }}</h1>
+    <p class="sub">{{ t.tt_sub }}</p>
+  </header>
+
+  <!-- Weekly Targets -->
+  <section class="section targets" *ngIf="enrolledTeachers().length">
+    <h2>{{ t.tt_courses_h2 }}</h2>
+    <div class="target-list">
+      <div class="target-item" *ngFor="let entry of enrolledTeachers(); trackBy: trackByTeacher">
+        <div class="target-info">
+          <span class="target-avatar-initial" *ngIf="!entry.avatarUrl">{{ getInitial(entry.fullName) }}</span>
+          <img class="target-avatar" [src]="entry.avatarUrl" [alt]="entry.fullName" *ngIf="entry.avatarUrl" onerror="this.style.display='none'" />
+          <div class="target-details">
+            <strong>{{ entry.fullName }}</strong>
+            <span class="target-subject">{{ entry.subjects[0] }}</span>
+          </div>
+        </div>
+        <div class="target-controls">
+          <span class="target-label">
+            <span class="target-stepper">
+              <button class="stepper-btn"
+                      type="button"
+                      [disabled]="getTargetForTeacher(entry.id) <= getScheduledCount(entry.id)"
+                      (click)="setTarget(entry.id, getTargetForTeacher(entry.id) - 1)">−</button>
+              <span class="target-input">{{ getTargetForTeacher(entry.id) }}</span>
+              <button class="stepper-btn"
+                      type="button"
+                      [disabled]="getTargetForTeacher(entry.id) >= 14"
+                      (click)="setTarget(entry.id, getTargetForTeacher(entry.id) + 1)">+</button>
+            </span>
+            {{ t.tt_sessions_week }}
+          </span>
+          <div class="progress-bar" *ngIf="getTargetForTeacher(entry.id) > 0">
+            <div
+              class="progress-fill"
+              [style.background]="getColor(entry.id).bg"
+              [style.borderColor]="getColor(entry.id).border"
+              [style.width.%]="getProgressPercent(getScheduledCount(entry.id), getTargetForTeacher(entry.id))"
+            ></div>
+            <span class="progress-label">
+              {{ getScheduledCount(entry.id) }} / {{ getTargetForTeacher(entry.id) }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" *ngIf="!enrolledTeachers().length">
+    <p class="empty">{{ t.tt_empty }}</p>
+  </section>
+
+  <!-- Add Session Form -->
+  <section class="section add-form" *ngIf="enrolledTeachers().length">
+    <h2>{{ t.tt_add_session_h2 }}</h2>
+    <div class="add-form-inner">
+      <app-animated-dropdown
+        [options]="teacherOptionsWithDefault()"
+        [value]="addTeacherId()"
+        (valueChange)="addTeacherId.set($event)"
+      />
+
+      <app-animated-dropdown
+        class="day-dropdown"
+        [options]="dayOptions()"
+        [value]="dayDropdownValue"
+        (valueChange)="setDay($event)"
+      />
+
+      <div class="time-inputs">
+        <label class="time-label">
+          {{ t.tt_from }}
+          <input type="time" class="input time-input" [(ngModel)]="addStartTime" />
+        </label>
+        <span class="time-separator">-</span>
+        <label class="time-label">
+          {{ t.tt_to }}
+          <input type="time" class="input time-input" [(ngModel)]="addEndTime" />
+        </label>
+      </div>
+
+      <p class="add-warning" *ngIf="rawSelectedId() && isTargetFull(+rawSelectedId())">
+        {{ t.tt_target_reached }} ({{ getScheduledCount(+rawSelectedId()) }} / {{ getTargetForTeacher(+rawSelectedId()) }}). {{ t.tt_target_full }}
+      </p>
+      <p class="add-error" *ngIf="addError()">{{ addError() }}</p>
+      <p class="add-success" *ngIf="addSuccess()">{{ addSuccess() }}</p>
+
+      <button class="btn primary" type="button" (click)="addSession()" [disabled]="rawSelectedId() && isTargetFull(+rawSelectedId())">{{ t.tt_add_btn }}</button>
+    </div>
+  </section>
+
+  <!-- Visual Grid -->
+  <section class="section grid-section" *ngIf="enrolledTeachers().length">
+    <h2>{{ t.tt_schedule_h2 }}</h2>
+    <div class="timetable-grid">
+      <div class="grid-corner"></div>
+      <div class="grid-header" *ngFor="let hour of HOURS">{{ padHour(hour) }}</div>
+
+      <ng-container *ngFor="let di of dayIndices">
+        <div class="day-label">{{ DAY_SHORT()[di] }}</div>
+        <ng-container *ngFor="let hour of HOURS">
+          <div
+            class="grid-cell"
+            [class.has-entry]="hasEntryAt(di, hour)"
+            [class.conflict]="entryCountAt(di, hour) > 1"
+          >
+            <ng-container *ngFor="let entry of getEntriesForDayAndHour(di, hour); trackBy: trackByEntryId">
+              <div
+                class="schedule-block"
+                [style.background]="getColor(entry.teacherId).bg"
+                [style.borderColor]="getColor(entry.teacherId).border"
+                (click)="removeEntry(entry.id)"
+                title="{{ entry.teacherName }} ({{ entry.startTime }}-{{ entry.endTime }})"
+              >
+                <span class="block-initial">{{ getInitial(entry.teacherName) }}</span>
+                <span class="block-time">{{ entry.startTime }} – {{ entry.endTime }}</span>
+              </div>
+            </ng-container>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </section>
+</div>

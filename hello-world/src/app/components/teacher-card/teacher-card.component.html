@@ -1,0 +1,29 @@
+<a class="card" [routerLink]="['/teacher', teacher.id]">
+  <img
+    class="avatar"
+    [src]="teacher.avatarUrl || 'https://placehold.co/128x128/png'"
+    [alt]="teacher.fullName + ' profile photo'"
+    loading="lazy"
+  />
+
+  <div class="content">
+    <div class="top">
+      <h3>{{ teacher.fullName }}</h3>
+      <app-rating-stars [rating]="averageRating" [showValue]="true" />
+    </div>
+
+    <p class="subjects">
+      {{ subjectsLabel() }}
+    </p>
+
+    <p class="bio">
+      {{ teacher.bio || t.card_no_desc }}
+    </p>
+  </div>
+
+  <div class="cta">
+    <span>{{ t.card_view_profile }}</span>
+    <span aria-hidden="true">→</span>
+  </div>
+</a>
+

@@ -1,0 +1,139 @@
+<div class="page">
+  <ng-container *ngIf="isLoading(); else loaded">
+    <div class="profile-card">
+      <div class="top">
+        <app-skeleton width="96px" height="96px" radius="999px" />
+        <div class="meta">
+          <app-skeleton width="60%" height="18px" />
+          <app-skeleton width="40%" height="12px" />
+          <app-skeleton width="30%" height="12px" />
+        </div>
+      </div>
+      <app-skeleton width="95%" height="12px" />
+      <app-skeleton width="88%" height="12px" />
+      <app-skeleton width="75%" height="12px" />
+    </div>
+  </ng-container>
+
+  <ng-template #loaded>
+    <ng-container *ngIf="teacher; else notFound">
+      <section class="profile-card">
+        <div class="top">
+          <img
+            class="avatar"
+            [src]="teacher.avatarUrl || 'https://placehold.co/256x256/png'"
+            [alt]="teacher.fullName + ' profile photo'"
+          />
+
+          <div class="meta">
+            <div class="name-row">
+              <h1>{{ teacher.fullName }}</h1>
+              <app-rating-stars [rating]="avgRating()" [showValue]="true" />
+            </div>
+            <p class="subjects">{{ subjectsLabel() }}</p>
+            <p class="contact">
+              <span *ngIf="teacher.email">{{ t.profile_email }}: {{ teacher.email }}</span>
+              <span *ngIf="teacher.phone">{{ t.profile_phone }}: {{ teacher.phone }}</span>
+            </p>
+            <p class="social" *ngIf="teacher.social">
+              <a *ngIf="teacher.social.website" [href]="teacher.social.website" target="_blank" rel="noopener">Website</a>
+              <a *ngIf="teacher.social.youtube" [href]="teacher.social.youtube" target="_blank" rel="noopener">YouTube</a>
+              <a *ngIf="teacher.social.linkedin" [href]="teacher.social.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+              <a *ngIf="teacher.social.instagram" [href]="teacher.social.instagram" target="_blank" rel="noopener">Instagram</a>
+              <a *ngIf="teacher.social.facebook" [href]="teacher.social.facebook" target="_blank" rel="noopener">Facebook</a>
+            </p>
+
+            <div class="enroll-row">
+              <ng-container *ngIf="enrolled(); else notEnrolled">
+                <span class="badge enrolled">{{ t.profile_enrolled_badge }}</span>
+                <button class="btn-outline" type="button" (click)="unenroll()">{{ t.profile_unenroll }}</button>
+              </ng-container>
+              <ng-template #notEnrolled>
+                <button class="btn-enroll" type="button" (click)="enrollOrLogin()">
+                  {{ auth.isLoggedIn() ? t.profile_enroll : t.profile_enroll_login }}
+                </button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+
+        <div class="bio">
+          <h2>{{ t.profile_about }}</h2>
+          <p>{{ teacher.bio || t.profile_no_bio }}</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>{{ t.profile_videos_h2 }}</h2>
+          <p>{{ t.profile_videos_hint }}</p>
+        </div>
+
+        <div class="video-grid">
+          <app-video-card
+            *ngFor="let v of videos"
+            [video]="v"
+            [unlocked]="unlocked(v.id) || v.priceCents === 0"
+            (buy)="onBuy($event)"
+            (play)="onPlay($event)"
+          />
+        </div>
+
+        <div class="player" *ngIf="selectedVideo() as v">
+          <div class="player-head">
+            <h3>{{ v.title }}</h3>
+            <button class="btn-ghost" type="button" (click)="selectedVideoId.set(null)">{{ t.profile_close }}</button>
+          </div>
+
+          <div class="frame" *ngIf="v.embedUrl; else placeholder">
+            <iframe
+              [src]="safeEmbedUrl(v.embedUrl)"
+              title="Video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <ng-template #placeholder>
+            <div class="placeholder">
+              <p>{{ t.profile_no_videos }}</p>
+            </div>
+          </ng-template>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>{{ t.profile_reviews_h2 }}</h2>
+          <p>{{ t.profile_reviews_hint }}</p>
+        </div>
+
+        <div class="reviews" *ngIf="reviews.length; else noReviews">
+          <article class="review" *ngFor="let r of reviews">
+            <div class="review-top">
+              <strong>{{ r.studentName }}</strong>
+              <app-rating-stars [rating]="r.rating" [showValue]="false" />
+            </div>
+            <p class="review-text">{{ r.text }}</p>
+          </article>
+        </div>
+
+        <ng-template #noReviews>
+          <p class="muted">{{ t.no_reviews }}</p>
+        </ng-template>
+      </section>
+
+      <footer class="footer">
+        <a class="btn-ghost" routerLink="/teachers">{{ t.profile_back_teachers }}</a>
+      </footer>
+    </ng-container>
+
+    <ng-template #notFound>
+      <div class="not-found">
+        <p>{{ t.profile_not_found }}</p>
+        <a class="btn-ghost" routerLink="/teachers">{{ t.profile_back_teachers }}</a>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

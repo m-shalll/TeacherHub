@@ -1,0 +1,7 @@
+<div class="stars" [attr.aria-label]="'Rating ' + rating + ' out of 5'">
+  <span class="star" *ngFor="let i of [1,2,3,4,5]">
+    <span [class.filled]="rating >= i">★</span>
+  </span>
+  <span class="value" *ngIf="showValue">{{ rating }}</span>
+</div>
+

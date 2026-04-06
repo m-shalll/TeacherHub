@@ -1,0 +1,28 @@
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.star {
+  font-size: 0.95rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.12);
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+.star span.filled {
+  color: #f59e0b;
+  text-shadow: 0 6px 14px rgba(245, 158, 11, 0.35);
+  animation: scaleIn 250ms ease both;
+}
+
+.value {
+  margin-left: 0.35rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}

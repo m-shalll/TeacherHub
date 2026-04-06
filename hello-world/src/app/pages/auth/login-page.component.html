@@ -1,0 +1,26 @@
+<div class="auth-page">
+  <div class="card">
+    <h1>{{ t.login_h1 }}</h1>
+    <p class="lead">{{ t.login_lead }}</p>
+
+    <form (ngSubmit)="submit()">
+      <label class="field">
+        <span>{{ t.login_email }}</span>
+        <input type="email" name="email" [(ngModel)]="email" required autocomplete="email" />
+      </label>
+      <label class="field">
+        <span>{{ t.login_password }}</span>
+        <input type="password" name="password" [(ngModel)]="password" required autocomplete="current-password" />
+      </label>
+
+      <p class="error" *ngIf="error">{{ error }}</p>
+
+      <button class="btn primary" type="submit">{{ t.login_btn }}</button>
+    </form>
+
+    <p class="footer">
+      {{ t.login_no_account }}
+      <a routerLink="/signup">{{ t.login_create }}</a>
+    </p>
+  </div>
+</div>

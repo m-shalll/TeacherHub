@@ -1,0 +1,183 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(30, 27, 75, 0.35);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  animation: scaleIn 350ms ease both;
+  margin-bottom: 2.5rem;
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #f3f4f6, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-content .sub {
+  margin: 0.5rem 0 1.25rem;
+  color: #9ca3af;
+  font-size: 1rem;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn.ghost {
+  text-decoration: none;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+  color: #d1d5db;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+
+.btn.ghost:hover {
+  background: rgba(99, 102, 241, 0.2);
+  color: #e5e7eb;
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateY(-2px);
+}
+
+/* --- Curriculum Grid --- */
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.curriculum-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.75rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(30, 27, 75, 0.25);
+  backdrop-filter: blur(16px);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  animation: fadeInUp 300ms ease both;
+}
+
+.curriculum-card:nth-child(1) { animation-delay: 0ms; }
+.curriculum-card:nth-child(2) { animation-delay: 80ms; }
+.curriculum-card:nth-child(3) { animation-delay: 160ms; }
+.curriculum-card:nth-child(4) { animation-delay: 240ms; }
+
+.curriculum-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(400px 200px at 90% 90%, var(--accent, rgba(99, 102, 241, 0.08)), transparent 60%);
+  pointer-events: none;
+  transition: opacity 300ms ease;
+  opacity: 0;
+}
+
+.curriculum-card:nth-child(1)::before { --accent: rgba(99, 102, 241, 0.12); }
+.curriculum-card:nth-child(2)::before { --accent: rgba(236, 72, 153, 0.12); }
+.curriculum-card:nth-child(3)::before { --accent: rgba(16, 185, 129, 0.12); }
+.curriculum-card:nth-child(4)::before { --accent: rgba(245, 158, 11, 0.12); }
+
+.curriculum-card:hover::before {
+  opacity: 1;
+}
+
+.curriculum-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(99, 102, 241, 0.25);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.card-icon.flag {
+  width: 2.5rem;
+  height: 1.8rem;
+  object-fit: contain;
+}
+
+.curriculum-card:nth-child(2) .card-icon { animation-delay: 0.5s; }
+.curriculum-card:nth-child(3) .card-icon { animation-delay: 1s; }
+.curriculum-card:nth-child(4) .card-icon { animation-delay: 1.5s; }
+
+.curriculum-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #f3f4f6, #c7d2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-desc {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.card-count {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.card-arrow {
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.15);
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.curriculum-card:hover .card-arrow {
+  color: #6366f1;
+  transform: translateX(6px);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (max-width: 640px) {
+  .curriculum-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,24 @@
+<article class="card" [class.locked]="!(unlocked || isFree)">
+  <div class="thumb">
+    <img
+      [src]="video.thumbnailUrl || 'https://placehold.co/800x450/png'"
+      [alt]="video.title + ' thumbnail'"
+      loading="lazy"
+    />
+    <span class="badge">{{ durationLabel }}</span>
+    <span class="lock" *ngIf="!(unlocked || isFree)">{{ t.video_locked }}</span>
+  </div>
+
+  <div class="body">
+    <div class="title-row">
+      <h4>{{ video.title }}</h4>
+      <span class="price">{{ priceLabel }}</span>
+    </div>
+    <p class="desc">{{ video.description }}</p>
+
+    <button class="btn" type="button" (click)="onPrimaryClick()">
+      {{ unlocked || isFree ? 'Play' : 'Buy / Unlock' }}
+    </button>
+  </div>
+</article>
+

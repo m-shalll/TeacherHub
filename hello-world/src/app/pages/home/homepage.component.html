@@ -1,0 +1,31 @@
+<div class="page">
+  <header class="hero">
+    <div class="hero-content">
+      <h1>{{ t.home_h1 }}</h1>
+      <p class="sub">{{ t.home_sub }}</p>
+    </div>
+    <div class="hero-actions" *ngIf="!auth.isLoggedIn()">
+      <a class="btn ghost" routerLink="/login">{{ t.home_login_btn }}</a>
+      <a class="btn ghost" routerLink="/signup">{{ t.home_signup_btn }}</a>
+    </div>
+    <div class="hero-actions" *ngIf="auth.isLoggedIn()">
+      <a class="btn ghost" routerLink="/dashboard">{{ t.home_dashboard_btn }}</a>
+    </div>
+  </header>
+
+  <section class="curriculum-grid">
+    <a
+      *ngFor="let c of curricula; trackBy: trackByC"
+      class="curriculum-card"
+      [routerLink]="['/teachers']"
+      [queryParams]="{ curriculum: c.key }"
+    >
+      <span class="card-icon emoji" *ngIf="c.icon">{{ c.icon }}</span>
+      <img class="card-icon flag" *ngIf="c.flag" [src]="'https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/flags/4x3/' + c.flag + '.svg'" [alt]="c.name" />
+      <h3>{{ c.name }}</h3>
+      <p class="card-desc">{{ c.description }}</p>
+      <span class="card-count">{{ teacherCount(c.key) }} {{ teacherCount(c.key) !== 1 ? t.teachers_count_plural : t.teachers_count }}</span>
+      <span class="card-arrow">&rarr;</span>
+    </a>
+  </section>
+</div>

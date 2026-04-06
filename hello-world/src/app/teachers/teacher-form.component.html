@@ -1,0 +1,76 @@
+<div class="page">
+  <header class="page-header">
+    <h1>{{ mode === 'create' ? 'Add Teacher' : 'Edit Teacher' }}</h1>
+    <a class="btn ghost" [routerLink]="['/teachers']">Cancel</a>
+  </header>
+
+  <form class="form" (ngSubmit)="save()">
+    <div class="field">
+      <label for="fullName">Full name<span>*</span></label>
+      <input
+        id="fullName"
+        name="fullName"
+        type="text"
+        [(ngModel)]="model.fullName"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label for="subject">Subject<span>*</span></label>
+      <input
+        id="subject"
+        name="subject"
+        type="text"
+        [(ngModel)]="model.subject"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        [(ngModel)]="model.email"
+      />
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input
+        id="phone"
+        name="phone"
+        type="tel"
+        [(ngModel)]="model.phone"
+      />
+    </div>
+
+    <div class="field">
+      <label for="experienceYears">Years of experience</label>
+      <input
+        id="experienceYears"
+        name="experienceYears"
+        type="number"
+        min="0"
+        [(ngModel)]="model.experienceYears"
+      />
+    </div>
+
+    <div class="field">
+      <label for="bio">Biography</label>
+      <textarea
+        id="bio"
+        name="bio"
+        rows="4"
+        [(ngModel)]="model.bio"
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn primary">
+      {{ mode === 'create' ? 'Create profile' : 'Save changes' }}
+    </button>
+  </form>
+</div>
+

@@ -1,0 +1,51 @@
+<div class="auth-page">
+  <div class="card">
+    <h1>{{ t.signup_h1 }}</h1>
+    <p class="lead">{{ t.signup_lead }}</p>
+
+    <form (ngSubmit)="submit()">
+      <label class="field">
+        <span>{{ t.signup_fullname }}</span>
+        <input type="text" name="fullName" [(ngModel)]="fullName" required autocomplete="name" />
+      </label>
+      <label class="field">
+        <span>{{ t.signup_email }}</span>
+        <input type="email" name="email" [(ngModel)]="email" required autocomplete="email" />
+      </label>
+      <label class="field">
+        <span>{{ t.signup_password }}</span>
+        <input type="password" name="password" [(ngModel)]="password" required minlength="6" autocomplete="new-password" />
+      </label>
+
+      <fieldset class="curriculum-fieldset" [class.error]="curriculumRequired()">
+        <legend>{{ t.signup_choose_curriculum }}</legend>
+        <div class="options">
+          <label
+            *ngFor="let c of curriculumOptions"
+            class="option"
+            [class.selected]="selectedCurriculum() === c"
+          >
+            <input
+              type="radio"
+              name="curriculum"
+              [value]="c"
+              [(ngModel)]="selectedCurriculum"
+              (change)="curriculumRequired.set(false)"
+            />
+            <span class="option-label">{{ curriculumLabels[c] }}</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <p class="error" *ngIf="error">{{ error }}</p>
+      <p class="error" *ngIf="curriculumRequired()">{{ t.signup_select_curriculum }}</p>
+
+      <button class="btn primary" type="submit">{{ t.signup_btn }}</button>
+    </form>
+
+    <p class="footer">
+      {{ t.signup_has_account }}
+      <a routerLink="/login">{{ t.signup_login }}</a>
+    </p>
+  </div>
+</div>

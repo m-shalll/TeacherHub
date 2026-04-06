@@ -1,0 +1,146 @@
+.page {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem 3rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.page-header p {
+  margin: 0.25rem 0 0;
+  color: #6b7280;
+}
+
+.toolbar {
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.03);
+}
+
+.avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.card-main h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.subject {
+  margin: 0.15rem 0;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.meta {
+  margin: 0.15rem 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.contact {
+  margin: 0.15rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  color: #ffffff;
+}
+
+.btn.ghost {
+  border-color: #d1d5db;
+  background: #ffffff;
+  color: #374151;
+}
+
+.btn.danger {
+  border-color: #fecaca;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.empty {
+  margin-top: 2rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+@media (max-width: 640px) {
+  .card {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .card-actions {
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    grid-column: 1 / -1;
+  }
+}
+
