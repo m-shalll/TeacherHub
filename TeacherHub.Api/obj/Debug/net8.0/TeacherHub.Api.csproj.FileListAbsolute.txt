@@ -144,3 +144,4 @@ D:\Mohamed Shal\Projects\Angular\TeacherHub.Api\obj\Debug\net8.0\refint\TeacherH
 D:\Mohamed Shal\Projects\Angular\TeacherHub.Api\obj\Debug\net8.0\TeacherHub.Api.pdb
 D:\Mohamed Shal\Projects\Angular\TeacherHub.Api\obj\Debug\net8.0\TeacherHub.Api.genruntimeconfig.cache
 D:\Mohamed Shal\Projects\Angular\TeacherHub.Api\obj\Debug\net8.0\ref\TeacherHub.Api.dll
+D:\Mohamed Shal\Projects\Angular\TeacherHub.Api\obj\Debug\net8.0\TeacherHub.Api.sourcelink.json

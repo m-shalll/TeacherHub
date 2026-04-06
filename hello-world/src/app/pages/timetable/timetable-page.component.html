@@ -95,29 +95,36 @@
     <h2>{{ t.tt_schedule_h2 }}</h2>
     <div class="timetable-grid">
       <div class="grid-corner"></div>
-      <div class="grid-header" *ngFor="let hour of HOURS">{{ padHour(hour) }}</div>
+      <div class="grid-header" *ngFor="let hour of HOURS">{{ padHour(hour) }}-{{ padHour(hour + 1) }}</div>
 
       <ng-container *ngFor="let di of dayIndices">
-        <div class="day-label">{{ DAY_SHORT()[di] }}</div>
+        <div class="day-label" [style.grid-row]="di + 2" [style.grid-column]="1">{{ DAY_SHORT()[di] }}</div>
         <ng-container *ngFor="let hour of HOURS">
           <div
             class="grid-cell"
+            [style.grid-row]="di + 2"
             [class.has-entry]="hasEntryAt(di, hour)"
             [class.conflict]="entryCountAt(di, hour) > 1"
-          >
-            <ng-container *ngFor="let entry of getEntriesForDayAndHour(di, hour); trackBy: trackByEntryId">
-              <div
-                class="schedule-block"
-                [style.background]="getColor(entry.teacherId).bg"
-                [style.borderColor]="getColor(entry.teacherId).border"
-                (click)="removeEntry(entry.id)"
-                title="{{ entry.teacherName }} ({{ entry.startTime }}-{{ entry.endTime }})"
-              >
-                <span class="block-initial">{{ getInitial(entry.teacherName) }}</span>
-                <span class="block-time">{{ entry.startTime }} – {{ entry.endTime }}</span>
-              </div>
-            </ng-container>
-          </div>
+          ></div>
+        </ng-container>
+      </ng-container>
+      <!-- Schedule blocks as direct grid children, explicitly placed -->
+      <ng-container *ngFor="let di of dayIndices">
+        <ng-container *ngFor="let hour of HOURS">
+          <ng-container *ngFor="let entry of getVisibleEntries(di, hour); trackBy: trackByEntryId">
+            <div
+              class="schedule-block"
+              [style.grid-row]="entryGridRow(di)"
+              [style.grid-column]="entryGridColumn(entry, hour) + ' / span ' + spanHours(entry)"
+              [style.background]="getColor(entry.teacherId).bg"
+              [style.borderColor]="getColor(entry.teacherId).border"
+              (click)="removeEntry(entry.id)"
+              title="{{ entry.teacherName }} ({{ entry.startTime }}-{{ entry.endTime }})"
+            >
+              <span class="block-initial">{{ getInitial(entry.teacherName) }}</span>
+              <span class="block-time">{{ entry.startTime }} – {{ entry.endTime }}</span>
+            </div>
+          </ng-container>
         </ng-container>
       </ng-container>
     </div>

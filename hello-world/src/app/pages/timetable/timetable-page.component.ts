@@ -245,6 +245,40 @@ export class TimetablePageComponent {
     return this.getEntriesForDayAndHour(day, hour).length;
   }
 
+  entryStartsAt(entry: TimetableEntry, hour: number): boolean {
+    const startH = parseInt(entry.startTime.split(':')[0], 10);
+    return startH === hour;
+  }
+
+  // Visible entries for a cell: only entries that start at this hour (span from there)
+  getVisibleEntries(day: number, hour: number): TimetableEntry[] {
+    return this.getEntriesForDayAndHour(day, hour).filter((e) => this.entryStartsAt(e, hour));
+  }
+
+  spanHours(entry: TimetableEntry): number {
+    const [sh, sm] = entry.startTime.split(':').map(Number);
+    const [eh, em] = entry.endTime.split(':').map(Number);
+    const diffMinutes = (eh * 60 + em) - (sh * 60 + sm);
+    return Math.ceil(diffMinutes / 60);
+  }
+
+  // Used for cells where an entry passes through but doesn't start (to avoid duplication)
+  hasPassThrough(day: number, hour: number): boolean {
+    const entries = this.getEntriesForDayAndHour(day, hour);
+    return entries.some((e) => !this.entryStartsAt(e, hour));
+  }
+
+  // Map hour to grid column index (grid has 1 day-label col + 16 hour cols)
+  // Hour 7 => col 2, Hour 8 => col 3, etc.
+  entryGridColumn(entry: TimetableEntry, currentHour: number): number {
+    return currentHour - 5;
+  }
+
+  // Day index to grid row (row 1 = headers, so day 0 = row 2)
+  entryGridRow(di: number): number {
+    return di + 2;
+  }
+
   trackByTeacher(index: number, item: Teacher): number {
     return item.id;
   }
